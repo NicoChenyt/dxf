@@ -1,7 +1,7 @@
 package entity
 
 import (
-	"github.com/yofu/dxf/format"
+	"dxf/format"
 )
 
 // Polyline represents POLYLINE Entity.

@@ -6,15 +6,15 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/yofu/dxf/block"
-	"github.com/yofu/dxf/class"
-	"github.com/yofu/dxf/color"
-	"github.com/yofu/dxf/entity"
-	"github.com/yofu/dxf/format"
-	"github.com/yofu/dxf/handle"
-	"github.com/yofu/dxf/header"
-	"github.com/yofu/dxf/object"
-	"github.com/yofu/dxf/table"
+	"dxf/block"
+	"dxf/class"
+	"dxf/color"
+	"dxf/entity"
+	"dxf/format"
+	"dxf/handle"
+	"dxf/header"
+	"dxf/object"
+	"dxf/table"
 )
 
 // Drawing contains DXF drawing data.
@@ -268,6 +268,23 @@ func (d *Drawing) LwPolyline(closed bool, vertices ...[]float64) (*entity.LwPoly
 	l.SetLayer(d.CurrentLayer)
 	d.AddEntity(l)
 	return l, nil
+}
+
+// Spline creates a Spline with given fits and controls
+func (d *Drawing) Spline(closed bool, fits, controls [][]float64) (*entity.Spline, error) {
+	s := entity.NewSpline()
+	for _, f := range fits {
+		s.AddFits(f[0], f[1], f[2])
+	}
+	for _, c := range controls {
+		s.AddControls(c[0], c[1], c[2])
+	}
+	if closed && len(fits) > 0 {
+		s.AddControls(fits[0][0], fits[0][1], fits[0][2])
+	}
+	s.SetLayer(d.CurrentLayer)
+	d.AddEntity(s)
+	return s, nil
 }
 
 // ThreeDFace creates a new 3DFACE with given points.

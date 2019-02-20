@@ -1,9 +1,9 @@
 package object
 
 import (
-	"github.com/yofu/dxf/entity"
-	"github.com/yofu/dxf/format"
-	"github.com/yofu/dxf/handle"
+	"dxf/entity"
+	"dxf/format"
+	"dxf/handle"
 )
 
 // Group represents GROUP Object.

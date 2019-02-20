@@ -1,8 +1,8 @@
 package table
 
 import (
-	"github.com/yofu/dxf/format"
-	"github.com/yofu/dxf/handle"
+	"dxf/format"
+	"dxf/handle"
 )
 
 // View represents VIEW SymbolTable.

@@ -1,7 +1,7 @@
 package entity
 
 import (
-	"github.com/yofu/dxf/format"
+	"dxf/format"
 )
 
 // Spline represents LINE Entity.
@@ -72,23 +72,22 @@ func (s *Spline) String() string {
 	return s.FormatString(f)
 }
 
+func (s *Spline) AddControls(x, y, z float64) {
+	s.Controls = append(s.Controls, []float64{x, y, z})
+}
+
+func (s *Spline) AddFits(x, y, z float64) {
+	s.Fits = append(s.Fits, []float64{x, y, z})
+}
+
 // FormatString outputs data using given formatter.
 func (s *Spline) FormatString(f format.Formatter) string {
 	s.Format(f)
 	return f.Output()
 }
 
-// func (s *Spline) BBox() ([]float64, []float64) {
-// 	mins := make([]float64, 3)
-// 	maxs := make([]float64, 3)
-// 	for i := 0; i < 3; i++ {
-// 		if l.Start[i] <= l.End[i] {
-// 			mins[i] = l.Start[i]
-// 			maxs[i] = l.End[i]
-// 		} else {
-// 			mins[i] = l.End[i]
-// 			maxs[i] = l.Start[i]
-// 		}
-// 	}
-// 	return mins, maxs
-// }
+func (s *Spline) BBox() ([]float64, []float64) {
+	mins := make([]float64, 3)
+	maxs := make([]float64, 3)
+	return mins, maxs
+}

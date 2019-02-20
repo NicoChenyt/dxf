@@ -2,7 +2,7 @@
 package class
 
 import (
-	"github.com/yofu/dxf/format"
+	"dxf/format"
 )
 
 // Class represents each CLASS.

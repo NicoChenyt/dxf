@@ -1,8 +1,8 @@
 package entity
 
 import (
-	"github.com/yofu/dxf/format"
-	"github.com/yofu/dxf/table"
+	"dxf/format"
+	"dxf/table"
 )
 
 // Text Anchor
