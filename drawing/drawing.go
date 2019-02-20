@@ -280,7 +280,7 @@ func (d *Drawing) Spline(closed bool, fits, controls [][]float64) (*entity.Splin
 		s.AddControls(c[0], c[1], c[2])
 	}
 	if closed && len(fits) > 0 {
-		s.AddControls(fits[0][0], fits[0][1], fits[0][2])
+		s.AddFits(fits[0][0], fits[0][1], fits[0][2])
 	}
 	s.SetLayer(d.CurrentLayer)
 	d.AddEntity(s)
